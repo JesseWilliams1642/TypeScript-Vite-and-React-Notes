@@ -6,20 +6,6 @@ type CounterProps = {
     setCount: React.Dispatch<React.SetStateAction<number>>
 }
 
-
-
-
-
-
-// UP TO CH 14 5:41:39
-
-
-
-
-
-
-
-
 const Counter = ({ children, setCount }: CounterProps) => {
 
     // If we wanted the state used only within this component, we would simply add

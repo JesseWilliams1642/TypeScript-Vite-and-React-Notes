@@ -21,12 +21,13 @@ and choosing React + Typescript
  * Common hooks include useState, useEffect, 
  */
 
-
 import { useCallback, useEffect, useMemo, useRef, useState, type KeyboardEvent, type MouseEvent } from "react";
 import Counter from "./components/Counter";
 import Heading from "./components/Heading";
 import { Section } from "./components/Section";
 import List from "./components/List";
+import ReducerCounter from "./components/ReducerCounter";
+import { CounterProvider, initState } from "./context/CounterContext";
 
 function App() {
 
@@ -140,8 +141,15 @@ function App() {
       <List items={["Coffee","Tacos","Code"]} 
         render={(item: string) =>  <span className="gold bold">{item}</span>} />
 
-        <h3>{myValue}! = {result}</h3>
-        <button onClick={incrementCount}>Increment Fib Number Value</button>
+      <h3>{myValue}! = {result}</h3>
+      <button onClick={incrementCount}>Increment Fib Number Value</button>
+
+      { /* Reducer+Context User Example */ }
+      <CounterProvider count={initState.count} text={initState.text}>
+        <ReducerCounter></ReducerCounter>
+      </CounterProvider>
+      
+
     </>
   );
   
